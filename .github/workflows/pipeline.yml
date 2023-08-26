@@ -203,7 +203,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - run: npm ci --production --ignore-scripts
+      - run: npm ci
 
       - run: npm run build:metro-web
 
