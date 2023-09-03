@@ -5,6 +5,7 @@ coverage/
 .idea/
 .husky/
 .github/
+public/
 License.md
 
 .expo/
