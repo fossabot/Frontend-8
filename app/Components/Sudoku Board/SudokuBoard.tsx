@@ -993,13 +993,24 @@ const SudokuBoard = (props: any) => {
 
 export default SudokuBoard;
 
-interface SudokuBoardObject {
+interface SudokuObject {
+  type: GameType;
   // spend more time understanding current Hint structure, come back to this
   hint: Hint;
+  statistics: GameStatistics;
   puzzle: Cell[][];
+  valueProgress: number[]; // will track progress of # of values entered. example: 2 has 3/9 values entered, etc
 }
 
 type Cell = CellWithValue | CellWithNotes;
+
+interface GameStatistics {
+  difficulty: GameDifficulty;
+  time: number;
+  score: number;
+  numWrongCellsPlayed: number;
+  numHintsUsed: number;
+}
 
 interface CellWithValue {
   type: "value";
@@ -1011,7 +1022,10 @@ interface CellWithNotes {
   entry: number[];
 }
 
-type CellType = "Note" | "Value";
+type CellType = "note" | "value";
+
+type GameType = "demo" | "drill" | "puzzle" | "lesson";
+type GameDifficulty = "easy" | "medium" | "hard";
 
 // This will be exported from Sudokuru package
 interface Hint {
