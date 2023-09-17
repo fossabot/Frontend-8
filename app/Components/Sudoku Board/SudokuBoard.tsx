@@ -996,7 +996,7 @@ export default SudokuBoard;
 interface SudokuObject {
   type: GameType;
   // spend more time understanding current Hint structure, come back to this
-  hint: Hint;
+  hint?: Hint;
   statistics: GameStatistics;
   puzzle: Cell[][];
   valueProgress: number[]; // will track progress of # of values entered. example: 2 has 3/9 values entered, etc
