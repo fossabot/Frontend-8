@@ -996,10 +996,23 @@ export default SudokuBoard;
 interface SudokuObject {
   type: GameType;
   // spend more time understanding current Hint structure, come back to this
-  hint?: Hint;
+  // hint?: Hint;
   statistics: GameStatistics;
   puzzle: Cell[][];
+  actionHistory: GameAction[];
   valueProgress: number[]; // will track progress of # of values entered. example: 2 has 3/9 values entered, etc
+}
+
+interface GameAction {
+  type: ActionType;
+  cell: ActionCell;
+}
+
+type ActionType = "note" | "value" | "erase";
+
+interface ActionCell {
+  x: number;
+  y: number;
 }
 
 interface GameStatistics {
