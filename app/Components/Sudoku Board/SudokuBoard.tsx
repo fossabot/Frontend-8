@@ -1002,8 +1002,6 @@ interface SudokuObject {
   valueProgress: number[]; // will track progress of # of values entered. example: 2 has 3/9 values entered, etc
 }
 
-type Cell = CellWithValue | CellWithNotes;
-
 interface GameStatistics {
   difficulty: GameDifficulty;
   time: number;
@@ -1011,6 +1009,11 @@ interface GameStatistics {
   numWrongCellsPlayed: number;
   numHintsUsed: number;
 }
+
+type GameType = "demo" | "drill" | "puzzle" | "lesson";
+type GameDifficulty = "easy" | "medium" | "hard";
+
+type Cell = CellWithValue | CellWithNotes;
 
 interface CellWithValue {
   type: "value";
@@ -1023,9 +1026,6 @@ interface CellWithNotes {
 }
 
 type CellType = "note" | "value";
-
-type GameType = "demo" | "drill" | "puzzle" | "lesson";
-type GameDifficulty = "easy" | "medium" | "hard";
 
 // This will be exported from Sudokuru package
 interface Hint {
