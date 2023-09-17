@@ -1006,7 +1006,8 @@ interface SudokuObject {
 
 interface GameAction {
   type: ActionType;
-  cell: CellLocation;
+  cellLocation: CellLocation;
+  cell: Cell;
 }
 
 type ActionType = "note" | "value" | "erase";
@@ -1030,7 +1031,7 @@ type GameDifficulty = "easy" | "medium" | "hard";
 type Cell = CellWithValue | CellWithNotes;
 
 interface CellWithValue {
-  type: "value";
+  type: "value" | "given";
   entry: number;
 }
 
@@ -1039,7 +1040,7 @@ interface CellWithNotes {
   entry: number[];
 }
 
-type CellType = "note" | "value";
+type CellType = "note" | "value" | "given";
 
 // This will be exported from Sudokuru package
 interface Hint {
