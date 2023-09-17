@@ -993,7 +993,40 @@ const SudokuBoard = (props: any) => {
 
 export default SudokuBoard;
 
-interface SudokuBoardProps {
+interface SudokuBoardObject {
+  // spend more time understanding current Hint structure, come back to this
+  hint: Hint;
+  puzzle: Cell[][];
+}
+
+type Cell = CellWithValue | CellWithNotes;
+
+interface CellWithValue {
+  type: "value";
+  entry: number;
+}
+
+interface CellWithNotes {
+  type: "note";
+  entry: number[];
+}
+
+type CellType = "Note" | "Value";
+
+// This will be exported from Sudokuru package
+interface Hint {
+  hint: {
+    strategy: any;
+    cause: any;
+    groups: any;
+    placements: any;
+    removals: any;
+    info: string;
+    action: string;
+  };
+}
+
+interface SudokuBoardComponent {
   gameType: string;
   strategies: string[];
   difficulty?: number;
