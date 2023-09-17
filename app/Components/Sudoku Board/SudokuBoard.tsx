@@ -997,6 +997,7 @@ interface SudokuObject {
   type: GameType;
   // spend more time understanding current Hint structure, come back to this
   // hint?: Hint;
+  selectedCell: CellLocation;
   statistics: GameStatistics;
   puzzle: Cell[][];
   actionHistory: GameAction[];
@@ -1005,12 +1006,12 @@ interface SudokuObject {
 
 interface GameAction {
   type: ActionType;
-  cell: ActionCell;
+  cell: CellLocation;
 }
 
 type ActionType = "note" | "value" | "erase";
 
-interface ActionCell {
+interface CellLocation {
   x: number;
   y: number;
 }
