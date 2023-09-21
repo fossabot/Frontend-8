@@ -1000,6 +1000,7 @@ interface SudokuObject {
   selectedCell: CellLocation;
   statistics: GameStatistics;
   puzzle: Cell[][];
+  puzzleSolution: Number[][];
   actionHistory: GameAction[];
   valueProgress: number[]; // will track progress of # of values entered. example: 2 has 3/9 values entered, etc
 }
